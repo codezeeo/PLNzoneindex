@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>PLNzone — Надёжный процессинг для high-risk проектов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0b0e1a;
+            color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .site {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        /* типографика */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a7c0ff 0%, #4a7cf4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* хедер */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #b0c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #b0b9d0;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: white;
+        }
+
+        .btn {
+            background: #2e3b5e;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+            transition: all 0.2s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #4a7cf4;
+            border-color: #7ca0ff;
+            box-shadow: 0 8px 20px -8px #4a7cf4;
+        }
+
+        .btn-primary:hover {
+            background: #5f8aff;
+            transform: translateY(-2px);
+        }
+
+        /* главный экран */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-bottom: 1rem;
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            color: #b0b9d0;
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+
+        .region-tags {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .region-tag {
+            background: rgba(74, 124, 244, 0.15);
+            border: 1px solid #4a7cf4;
+            border-radius: 40px;
+            padding: 0.4rem 1.5rem;
+            font-weight: 600;
+            color: #a7c0ff;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* секция about */
+        .section {
+            padding: 3.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: rgba(20, 30, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid #2e3b5e;
+        }
+
+        .support-flags {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .flag-item {
+            background: #1f2a44;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: white;
+            text-transform: uppercase;
+            border: 1px solid #4f6294;
+        }
+
+        /* преимущества (6 карточек) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 500px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: #131b2f;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            border: 1px solid #2e3b5e;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #4a7cf4;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px #4a7cf4;
+        }
+
+        .feature-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #4a7cf4;
+            opacity: 0.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: #b0b9d0;
+            font-size: 0.95rem;
+        }
+
+        /* invisible engine */
+        .engine-block {
+            background: linear-gradient(145deg, #0f1a2f, #030613);
+            border-radius: 2rem;
+            padding: 2.5rem 1.8rem;
+            margin: 2rem 0;
+            border: 1px solid #2e3b5e;
+        }
+
+        .engine-block h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .engine-block p {
+            font-size: 1.1rem;
+            color: #b0b9d0;
+        }
+
+        /* алгоритм запуска */
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 700px) {
+            .steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step {
+            background: #131b2f;
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid #2e3b5e;
+        }
+
+        .step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .step .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4a7cf4;
+            margin-bottom: 0.8rem;
+        }
+
+        .step p {
+            color: #b0b9d0;
+            font-size: 0.95rem;
+        }
+
+        .geo-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .geo-item {
+            background: #4a7cf4;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .integration-block {
+            background: #1f2a44;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            display: inline-block;
+            margin: 1.5rem 0;
+        }
+
+        /* ФОРМА ОБРАТНОЙ СВЯЗИ */
+        .form-section {
+            background: #131b2f;
+            border-radius: 2.5rem;
+            padding: 2.5rem 1.8rem;
+            margin: 3rem 0;
+            border: 1px solid #4f6294;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #b0b9d0;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            background: #1f2a44;
+            border: 1px solid #4f6294;
+            border-radius: 60px;
+            padding: 1rem 1.5rem;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #4a7cf4;
+            box-shadow: 0 0 0 2px rgba(74, 124, 244, 0.3);
+        }
+
+        textarea.form-control {
+            border-radius: 30px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-btn {
+            background: #4a7cf4;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 20px -8px #4a7cf4;
+        }
+
+        .form-btn:hover {
+            background: #5f8aff;
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #8e9db3;
+            text-align: center;
+        }
+
+        .form-note a {
+            color: #a7c0ff;
+        }
+
+        .success-message {
+            background: #1b4b3f;
+            border: 1px solid #2e8b6c;
+            border-radius: 60px;
+            padding: 1rem;
+            text-align: center;
+            color: #d1f7e5;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* контакты */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2.5rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        @media (min-width: 600px) {
+            .footer {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #2e3b5e;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+        }
+
+        .small-note {
+            color: #6e7fa0;
+            font-size: 0.9rem;
+        }
+
+        .currency-badge {
+            display: inline-block;
+            background: #1f2a44;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            margin: 0 0.2rem;
+            font-size: 0.8rem;
+            border: 1px solid #4a7cf4;
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+
+        <!-- ШАПКА -->
+        <header class="header">
+            <div class="logo">PLNzone</div>
+            <nav class="nav">
+                <a href="#">О нас</a>
+                <a href="#">Преимущества</a>
+                <a href="#">Регионы</a>
+                <a href="#">API</a>
+                <a href="#" class="btn btn-primary">Присоединиться</a>
+            </nav>
+        </header>
+
+        <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
+        <section class="hero">
+            <h1>
+                <span class="gradient-text">НАДЁЖНЫЙ</span> ПЛАТЁЖНЫЙ<br>ПРОЦЕССИНГ
+            </h1>
+            <div class="sub">Стабильная обработка для high-risk индустрий</div>
+            <div class="region-tags">
+                <span class="region-tag">PLN</span>
+                <span class="region-tag">EUR</span>
+                <span class="region-tag">USDT</span>
+            </div>
+            <p style="margin-top: 1.5rem; color: #b0b9d0;">+ Новые страны уже в разработке. Мы можем индивидуально интегрировать ваш приоритетный GEO.</p>
+        </section>
+
+        <!-- О НАС -->
+        <section class="section">
+            <h2 class="section-title">О нас</h2>
+            <div class="about-content">
+                <p style="font-size: 1.1rem;">Мы поддерживаем операции в регионах с высоким потенциалом, обеспечивая стабильность и скорость.</p>
+                <div class="support-flags">
+                    <span class="flag-item">PLN</span>
+                    <span class="flag-item">EUR</span>
+                    <span class="flag-item">USDT</span>
+                </div>
+                <p style="color:#b0b9d0;">+ Новые страны уже в разработке. Мы можем индивидуально интегрировать ваш приоритетный GEO.</p>
+            </div>
+        </section>
+
+        <!-- 6 ПРЕИМУЩЕСТВ (01-06) с обновлёнными валютами -->
+        <section class="section">
+            <h2 class="section-title">Почему выбирают PLNzone</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h3>Прозрачные цены</h3>
+                    <p>Никаких скрытых комиссий. Честные тарифы в <strong>PLN, USDT, EUR</strong> и конкурентоспособный обменный курс.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h3>T+0 Расчёты</h3>
+                    <p>Мгновенный доступ к оборотному капиталу. Вывод <strong>PLN, USDT, EUR</strong> без лимитов 24/7.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <h3>Высокая конверсия</h3>
+                    <p>Максимальный процент успешных платежей благодаря продвинутым алгоритмам и резервным шлюзам.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <h3>Информативная панель</h3>
+                    <p>Полный обзор финансовых потоков в <strong>PLN, USDT, EUR</strong> и ключевых метрик в современном интерфейсе.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">05</div>
+                    <h3>Выделенная линия поддержки</h3>
+                    <p>Прямой контакт с разработчиками и менеджерами 24/7 для мгновенного решения проблем.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">06</div>
+                    <h3>Прямой H2H API</h3>
+                    <p>Без сторонних платёжных форм. Плавный платёж полностью в вашем интерфейсе без редиректов.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVISIBLE ENGINE -->
+        <section class="engine-block">
+            <h2><span class="gradient-text">Невидимый</span> движок</h2>
+            <p>Настоящая технология должна быть невидимой. За лаконичным интерфейсом скрывается мощная архитектура, способная обрабатывать миллионы оборота в секунду. Вы видите только результат — мы берём на себя сложность.</p>
+        </section>
+
+        <!-- АЛГОРИТМ ЗАПУСКА (3 шага) -->
+        <section class="section">
+            <h2 class="section-title">Алгоритм запуска</h2>
+            <p style="margin-bottom: 2rem; color:#b0b9d0;">Простая процедура онбординга: от первого контакта до первой транзакции — всего несколько часов. Полное техническое сопровождение на всех этапах.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <span class="step-title">Шаг 1</span>
+                    <h3>Свяжитесь с нами в Telegram</h3>
+                    <p>Мы оперативно обсудим ваш проект, согласуем тарифы и предоставим доступ.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-primary" style="background: #4a7cf4;">Присоединиться</a>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-title">Шаг 2</span>
+                    <h3>Настройте обмен данными через API</h3>
+                    <p>H2H позволяет проводить платежи прямо в вашем интерфейсе без редиректов.</p>
+                    <div class="integration-block" style="margin-top: 1rem;">
+                        <span style="font-weight: 600;">Интеграция</span>
+                        <div style="font-size: 1.5rem; font-weight: 800;">Прямой API</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="step-title">Шаг 3</span>
+                    <h3>Запускайте трафик и управляйте</h3>
+                    <p>Контролируйте оборот в дашборде. Вывод средств в <strong>PLN, USDT, EUR</strong> доступен в любое время.</p>
+                    <div style="margin-top: 1rem; background: #4a7cf4; display: inline-block; padding: 0.4rem 1.8rem; border-radius: 40px;">Управление</div>
+                </div>
+            </div>
+
+            <!-- доступные регионы (повтор) -->
+            <div style="margin-top: 2.5rem;">
+                <h3 style="font-size: 1.8rem;">Доступные регионы</h3>
+                <div class="geo-row">
+                    <span class="geo-item">PLN</span>
+                    <span class="geo-item">EUR</span>
+                    <span class="geo-item">USDT</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ФОРМА ОБРАТНОЙ СВЯЗИ (ПОДКЛЮЧЕНА К TELEGRAM BOT) -->
+        <section class="form-section" id="feedback">
+            <h2 class="form-title">📬 Получить доступ</h2>
+            <div class="success-message" id="successMessage">✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.</div>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Ваше имя (или ник)</label>
+                    <input type="text" class="form-control" id="name" placeholder="например: Alex" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Telegram (или другой контакт)</label>
+                    <input type="text" class="form-control" id="contact" placeholder="@username или email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение / пожелания</label>
+                    <textarea class="form-control" id="message" placeholder="Расскажите о вашем проекте, ожидаемых оборотах..."></textarea>
+                </div>
+                <button type="submit" class="form-btn" id="submitBtn">✈️ Отправить заявку</button>
+                <div class="form-note">
+                    * данные уходят напрямую в Telegram бот. Для корректной работы требуется заменить <strong>токен</strong> и <strong>chat_id</strong> в коде (см. инструкцию ниже).
+                </div>
+            </form>
+        </section>
+
+        <!-- ПОДВАЛ С КОНТАКТАМИ -->
+        <footer class="footer">
+            <div class="logo">PLNzone</div>
+            <div>
+                <a href="#" class="telegram-link">
+                    <span>✈️</span> t.me/loveistwo
+                </a>
+            </div>
+            <div class="small-note">
+                © 2026 PLNzone. Работаем с PLN, USDT, EUR.
+            </div>
+        </footer>
+
+        <!-- Дополнительная фраза про поддержку -->
+        <div style="text-align: center; padding: 2rem 0 0; color: #6e7fa0; font-size: 0.9rem;">
+            Прямая линия с разработчиками 24/7 — мгновенное решение любых вопросов.
+        </div>
+    </div>
+
+    <!-- СКРИПТ ДЛЯ ОТПРАВКИ В TELEGRAM (замените токен и chat_id) -->
+    <script>
+        (function() {
+            // ⚠️ ВНИМАНИЕ: замените следующие переменные на свои
+            const TELEGRAM_BOT_TOKEN = 'ВАШ_ТОКЕН_БОТА';  // Получить у @BotFather
+            const TELEGRAM_CHAT_ID = 'ВАШ_CHAT_ID';      // Можно узнать у @userinfobot
+
+            const form = document.getElementById('feedbackForm');
+            const successDiv = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Собираем данные
+                const name = document.getElementById('name').value.trim();
+                const contact = document.getElementById('contact').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !contact) {
+                    alert('Пожалуйста, заполните имя и контакт.');
+                    return;
+                }
+
+                // Блокируем кнопку повторной отправки
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Отправка...';
+
+                // Формируем текст сообщения для Telegram
+                const text = `📩 Новая заявка на подключение PLNzone\n\n👤 Имя: ${name}\n📞 Контакт: ${contact}\n💬 Сообщение: ${message || '—'}`;
+
+                // Если токен не заменён, просто имитируем отправку
+                if (TELEGRAM_BOT_TOKEN === 'ВАШ_ТОКЕН_БОТА' || TELEGRAM_CHAT_ID === 'ВАШ_CHAT_ID') {
+                    console.log('Демо-режим: данные не отправлены, так как не указаны токен и chat_id.');
+                    console.log('Было бы отправлено:', text);
+                    // Показываем уведомление, но не отправляем
+                    successDiv.classList.add('show');
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '✈️ Отправить заявку';
+                    return;
+                }
+
+                try {
+                    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: text,
+                            parse_mode: 'HTML'
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (data.ok) {
+                        successDiv.classList.add('show');
+                        form.reset();
+                    } else {
+                        alert('Ошибка отправки. Попробуйте позже или свяжитесь напрямую.');
+                    }
+                } catch (error) {
+                    alert('Сетевая ошибка. Проверьте подключение.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '✈️ Отправить заявку';
+                }
+            });
+
+            // Скрываем success сообщение при клике вне
+            successDiv.addEventListener('click', function() {
+                this.classList.remove('show');
+            });
+        })();
+    </script>
+
+    <!-- Инструкция по настройке бота (можно скрыть, но оставим для ясности) -->
+    <div style="background: #1f2a44; border-radius: 2rem; padding: 1.5rem; margin: 2rem 0; font-size: 0.9rem; color: #b0c8ff;">
+    </div>
+</body>
+</html>
