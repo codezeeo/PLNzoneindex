@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>OnlyPayPro — Надёжный процессинг для high-risk проектов</title>
     <style>
+        /* Все стили без изменений (можно оставить как в предыдущем ответе) */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +26,6 @@
             padding: 1.5rem 1rem;
         }
 
-        /* типографика */
         h1, h2, h3 {
             font-weight: 600;
             letter-spacing: -0.02em;
@@ -38,7 +38,6 @@
             background-clip: text;
         }
 
-        /* хедер */
         .header {
             display: flex;
             justify-content: space-between;
@@ -101,7 +100,6 @@
             transform: translateY(-2px);
         }
 
-        /* главный экран */
         .hero {
             display: flex;
             flex-direction: column;
@@ -144,7 +142,6 @@
             font-size: 0.9rem;
         }
 
-        /* секция about */
         .section {
             padding: 3.5rem 0;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -185,7 +182,6 @@
             border: 1px solid #4f6294;
         }
 
-        /* преимущества (6 карточек) */
         .features-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -237,7 +233,6 @@
             font-size: 0.95rem;
         }
 
-        /* invisible engine */
         .engine-block {
             background: linear-gradient(145deg, #0f1a2f, #030613);
             border-radius: 2rem;
@@ -256,7 +251,6 @@
             color: #b0b9d0;
         }
 
-        /* алгоритм запуска */
         .steps {
             display: grid;
             grid-template-columns: 1fr;
@@ -318,7 +312,6 @@
             margin: 1.5rem 0;
         }
 
-        /* ФОРМА ОБРАТНОЙ СВЯЗИ */
         .form-section {
             background: #131b2f;
             border-radius: 2.5rem;
@@ -401,12 +394,28 @@
             display: block;
         }
 
-        /* контакты */
+        .server-time {
+            color: #8a9bc0;
+            font-size: 0.9rem;
+            background: rgba(74, 124, 244, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid #2e3b5e;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        @media (max-width: 600px) {
+            .server-time {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
         .footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
             padding: 2.5rem 0 1rem;
             border-top: 1px solid rgba(255,255,255,0.08);
             margin-top: 2rem;
@@ -453,19 +462,17 @@
 <body>
     <div class="site">
 
-        <!-- ШАПКА с корректными ссылками на страницы -->
         <header class="header">
             <div class="logo">OnlyPayPro</div>
             <nav class="nav">
-                <a href="about.html">О нас</a>
-                <a href="advantages.html">Преимущества</a>
-                <a href="regions.html">Регионы</a>
-                <a href="api.html">API</a>
+                <a href="#">О нас</a>
+                <a href="#">Преимущества</a>
+                <a href="#">Регионы</a>
+                <a href="#">API</a>
                 <a href="#feedback" class="btn btn-primary">Присоединиться</a>
             </nav>
         </header>
 
-        <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
         <section class="hero">
             <h1>
                 <span class="gradient-text">НАДЁЖНЫЙ</span> ПЛАТЁЖНЫЙ<br>ПРОЦЕССИНГ
@@ -479,7 +486,6 @@
             <p style="margin-top: 1.5rem; color: #b0b9d0;">+ Новые страны уже в разработке. Мы можем индивидуально интегрировать ваш приоритетный GEO.</p>
         </section>
 
-        <!-- О НАС -->
         <section class="section">
             <h2 class="section-title">О нас</h2>
             <div class="about-content">
@@ -493,7 +499,6 @@
             </div>
         </section>
 
-        <!-- 6 ПРЕИМУЩЕСТВ (01-06) с обновлёнными валютами -->
         <section class="section">
             <h2 class="section-title">Почему выбирают OnlyPayPro</h2>
             <div class="features-grid">
@@ -530,13 +535,11 @@
             </div>
         </section>
 
-        <!-- INVISIBLE ENGINE -->
         <section class="engine-block">
             <h2><span class="gradient-text">Невидимый</span> движок</h2>
             <p>Настоящая технология должна быть невидимой. За лаконичным интерфейсом скрывается мощная архитектура, способная обрабатывать миллионы оборота в секунду. Вы видите только результат — мы берём на себя сложность.</p>
         </section>
 
-        <!-- АЛГОРИТМ ЗАПУСКА (3 шага) -->
         <section class="section">
             <h2 class="section-title">Алгоритм запуска</h2>
             <p style="margin-bottom: 2rem; color:#b0b9d0;">Простая процедура онбординга: от первого контакта до первой транзакции — всего несколько часов. Полное техническое сопровождение на всех этапах.</p>
@@ -569,7 +572,6 @@
                 </div>
             </div>
 
-            <!-- доступные регионы (повтор) -->
             <div style="margin-top: 2.5rem;">
                 <h3 style="font-size: 1.8rem;">Доступные регионы</h3>
                 <div class="geo-row">
@@ -580,7 +582,6 @@
             </div>
         </section>
 
-        <!-- ФОРМА ОБРАТНОЙ СВЯЗИ (ПОДКЛЮЧЕНА К TELEGRAM BOT) -->
         <section class="form-section" id="feedback">
             <h2 class="form-title">📬 Получить доступ</h2>
             <div class="success-message" id="successMessage">✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.</div>
@@ -598,12 +599,13 @@
                     <textarea class="form-control" id="message" placeholder="Расскажите о вашем проекте, ожидаемых оборотах..."></textarea>
                 </div>
                 <button type="submit" class="form-btn" id="submitBtn">✈️ Отправить заявку</button>
-                <!-- Удалён form-note с инструкцией -->
             </form>
         </section>
 
-        <!-- ПОДВАЛ С КОНТАКТАМИ -->
         <footer class="footer">
+            <div class="server-time">
+                🇳🇱 Амстердам: <span id="amsterdam-time">--:--:--</span>
+            </div>
             <div class="logo">OnlyPayPro</div>
             <div>
                 <a href="#" class="telegram-link">
@@ -615,18 +617,16 @@
             </div>
         </footer>
 
-        <!-- Дополнительная фраза про поддержку -->
         <div style="text-align: center; padding: 2rem 0 0; color: #6e7fa0; font-size: 0.9rem;">
             Прямая линия с разработчиками 24/7 — мгновенное решение любых вопросов.
         </div>
     </div>
 
-    <!-- СКРИПТ ДЛЯ ОТПРАВКИ В TELEGRAM (замените токен и chat_id) -->
+    <!-- СКРИПТ ДЛЯ ОТПРАВКИ В TELEGRAM (исправлен chat_id) -->
     <script>
         (function() {
-            // ⚠️ ВНИМАНИЕ: замените следующие переменные на свои
-            const TELEGRAM_BOT_TOKEN = 'ВАШ_ТОКЕН_БОТА';  // Получить у @BotFather
-            const TELEGRAM_CHAT_ID = 'ВАШ_CHAT_ID';      // Можно узнать у @userinfobot
+            const TELEGRAM_BOT_TOKEN = '8007306348:AAH8H5OcqiD_Xtv4nEyOkROY5V5TYAjkRbE';
+            const TELEGRAM_CHAT_ID = '262520571';   // Ваш личный ID
 
             const form = document.getElementById('feedbackForm');
             const successDiv = document.getElementById('successMessage');
@@ -635,7 +635,6 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
-                // Собираем данные
                 const name = document.getElementById('name').value.trim();
                 const contact = document.getElementById('contact').value.trim();
                 const message = document.getElementById('message').value.trim();
@@ -645,24 +644,10 @@
                     return;
                 }
 
-                // Блокируем кнопку повторной отправки
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Отправка...';
 
-                // Формируем текст сообщения для Telegram
                 const text = `📩 Новая заявка на подключение OnlyPayPro\n\n👤 Имя: ${name}\n📞 Контакт: ${contact}\n💬 Сообщение: ${message || '—'}`;
-
-                // Если токен не заменён, просто имитируем отправку
-                if (TELEGRAM_BOT_TOKEN === 'ВАШ_ТОКЕН_БОТА' || TELEGRAM_CHAT_ID === 'ВАШ_CHAT_ID') {
-                    console.log('Демо-режим: данные не отправлены, так как не указаны токен и chat_id.');
-                    console.log('Было бы отправлено:', text);
-                    // Показываем уведомление, но не отправляем
-                    successDiv.classList.add('show');
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '✈️ Отправить заявку';
-                    return;
-                }
 
                 try {
                     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -691,12 +676,34 @@
                 }
             });
 
-            // Скрываем success сообщение при клике вне
             successDiv.addEventListener('click', function() {
                 this.classList.remove('show');
             });
         })();
     </script>
-    <!-- Удалён пустой div с инструкцией по настройке бота -->
+
+    <!-- СКРИПТ ДЛЯ ОБНОВЛЕНИЯ ВРЕМЕНИ АМСТЕРДАМА -->
+    <script>
+        (function() {
+            function updateAmsterdamTime() {
+                const element = document.getElementById('amsterdam-time');
+                if (!element) return;
+
+                const now = new Date();
+                const options = {
+                    timeZone: 'Europe/Amsterdam',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const timeString = new Intl.DateTimeFormat('ru-RU', options).format(now);
+                element.textContent = timeString;
+            }
+
+            updateAmsterdamTime();
+            setInterval(updateAmsterdamTime, 1000);
+        })();
+    </script>
 </body>
 </html>
