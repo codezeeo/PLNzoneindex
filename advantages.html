@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>OnlyPayPro · API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0b0e1a;
+            color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .site {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a7c0ff 0%, #4a7cf4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #b0c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #b0b9d0;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: white;
+        }
+
+        .btn {
+            background: #2e3b5e;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+            transition: all 0.2s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #4a7cf4;
+            border-color: #7ca0ff;
+            box-shadow: 0 8px 20px -8px #4a7cf4;
+        }
+
+        .btn-primary:hover {
+            background: #5f8aff;
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .api-card {
+            background: #131b2f;
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #4a7cf4;
+        }
+
+        .api-method {
+            background: #0b0e1a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #4f6294;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .api-method .method {
+            color: #4a7cf4;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+
+        .code-block {
+            background: #1a1f30;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: #b0c8ff;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2.5rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 3rem;
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .footer {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #2e3b5e;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+        }
+        .small-note {
+            color: #6e7fa0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="logo">OnlyPayPro</div>
+            <nav class="nav">
+                <a href="about.html">О нас</a>
+                <a href="advantages.html">Преимущества</a>
+                <a href="regions.html">Регионы</a>
+                <a href="api.html">API</a>
+                <a href="index.html#feedback" class="btn btn-primary">Присоединиться</a>
+            </nav>
+        </header>
+
+        <h1 class="page-title"><span class="gradient-text">API и интеграция</span></h1>
+        <p style="color: #b0b9d0; margin-bottom: 2rem;">Прямое H2H-соединение без посредников. Документация и примеры запросов.</p>
+
+        <div class="api-card">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Базовые принципы</h2>
+            <ul class="feature-list" style="list-style: none;">
+                <li style="padding-left: 1.5rem; margin-bottom: 1rem;">🔹 REST API over HTTPS</li>
+                <li style="padding-left: 1.5rem; margin-bottom: 1rem;">🔹 Аутентификация по API-ключу (в заголовке X-API-Key)</li>
+                <li style="padding-left: 1.5rem; margin-bottom: 1rem;">🔹 Все ответы в формате JSON</li>
+                <li style="padding-left: 1.5rem; margin-bottom: 1rem;">🔹 Поддержка идемпотентности (заголовок Idempotency-Key)</li>
+            </ul>
+        </div>
+
+        <h2 style="font-size: 2rem; margin: 2rem 0 1rem;">Примеры запросов</h2>
+
+        <div class="api-method">
+            <span class="method">POST</span> <span style="color:white;">/v1/payment</span>
+            <p style="color:#b0b9d0; margin-top:0.5rem;">Создание платежа (вход)</p>
+            <div class="code-block">
+                {<br>
+                &nbsp;&nbsp;"amount": "2500.00",<br>
+                &nbsp;&nbsp;"currency": "PLN",<br>
+                &nbsp;&nbsp;"method": "BLIK",<br>
+                &nbsp;&nbsp;"return_url": "https://example.com/success",<br>
+                &nbsp;&nbsp;"customer": { "email": "client@example.com" }<br>
+                }
+            </div>
+        </div>
+
+        <div class="api-method">
+            <span class="method">GET</span> <span style="color:white;">/v1/payment/{id}</span>
+            <p style="color:#b0b9d0; margin-top:0.5rem;">Получение статуса транзакции</p>
+        </div>
+
+        <div class="api-method">
+            <span class="method">POST</span> <span style="color:white;">/v1/payout</span>
+            <p style="color:#b0b9d0; margin-top:0.5rem;">Вывод средств (выход)</p>
+        </div>
+
+        <div style="background: #1f2a44; border-radius: 2rem; padding: 2rem; text-align: center;">
+            <p style="font-size: 1.2rem;">📘 Полная документация доступна после подключения. Мы предоставляем песочницу (sandbox) для тестирования.</p>
+            <!-- Кнопка теперь ведёт на главную страницу к форме "Получить доступ" -->
+            <a href="index.html#feedback" class="btn btn-primary" style="margin-top: 1.5rem;">Запросить доступ к API</a>
+        </div>
+
+        <footer class="footer">
+            <div class="logo">OnlyPayPro</div>
+            <div>
+                <a href="#" class="telegram-link">
+                    <span>✈️</span> t.me/loveistwo
+                </a>
+            </div>
+            <div class="small-note">© 2026 OnlyPayPro</div>
+        </footer>
+    </div>
+</body>
+</html>
