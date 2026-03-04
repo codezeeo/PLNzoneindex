@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>OnlyPayPro · Преимущества</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0b0e1a;
+            color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .site {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a7c0ff 0%, #4a7cf4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #b0c8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #b0b9d0;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            color: white;
+        }
+
+        .btn {
+            background: #2e3b5e;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+            transition: all 0.2s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #4a7cf4;
+            border-color: #7ca0ff;
+            box-shadow: 0 8px 20px -8px #4a7cf4;
+        }
+
+        .btn-primary:hover {
+            background: #5f8aff;
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .advantage-card {
+            background: #131b2f;
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            border: 1px solid #2e3b5e;
+            transition: 0.3s;
+        }
+        .advantage-card:hover {
+            border-color: #4a7cf4;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px #4a7cf4;
+        }
+
+        .advantage-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #4a7cf4;
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card p {
+            color: #b0b9d0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2.5rem 0 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin-top: 3rem;
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .footer {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #2e3b5e;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border: 1px solid #4f6294;
+        }
+        .small-note {
+            color: #6e7fa0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="site">
+        <header class="header">
+            <div class="logo">OnlyPayPro</div>
+            <nav class="nav">
+                <a href="about.html">О нас</a>
+                <a href="advantages.html">Преимущества</a>
+                <a href="regions.html">Регионы</a>
+                <a href="api.html">API</a>
+                <a href="index.html#feedback" class="btn btn-primary">Присоединиться</a>
+            </nav>
+        </header>
+
+        <h1 class="page-title"><span class="gradient-text">Преимущества</span></h1>
+        <p style="color: #b0b9d0; margin-bottom: 2rem;">Шесть ключевых факторов, которые делают OnlyPayPro лидером рынка high-risk процессинга.</p>
+
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <div class="advantage-number">01</div>
+                <h3>Прозрачные цены</h3>
+                <p>Никаких скрытых комиссий. Честные тарифы в PLN, USDT, EUR и конкурентоспособный обменный курс. Все расходы известны до подписания договора.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">02</div>
+                <h3>T+0 Расчёты</h3>
+                <p>Мгновенный доступ к оборотному капиталу. Вывод средств в PLN, USDT, EUR без лимитов 24/7. Никаких задержек и холдов.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">03</div>
+                <h3>Высокая конверсия</h3>
+                <p>Интеллектуальная маршрутизация платежей и резервные шлюзы обеспечивают максимальный процент успешных транзакций даже в сложных гео.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">04</div>
+                <h3>Информативная панель</h3>
+                <p>Современный дашборд с полным обзором финансовых потоков, скорингом транзакций и аналитикой в реальном времени.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">05</div>
+                <h3>Выделенная поддержка</h3>
+                <p>Прямой контакт с разработчиками и менеджерами в Telegram 24/7. Решение любых проблем за минуты, а не дни.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">06</div>
+                <h3>Прямой H2H API</h3>
+                <p>Интеграция без посредников и редиректов. Платежи проходят полностью внутри вашего интерфейса, повышая доверие клиентов.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="logo">OnlyPayPro</div>
+            <div>
+                <a href="#" class="telegram-link">
+                    <span>✈️</span> t.me/loveistwo
+                </a>
+            </div>
+            <div class="small-note">© 2026 OnlyPayPro</div>
+        </footer>
+    </div>
+</body>
+</html>
