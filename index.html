@@ -421,6 +421,19 @@
         .success-message.show {
             display: block;
         }
+        .error-message {
+            background: #4b1f1f;
+            border: 1px solid #b33c3c;
+            border-radius: 60px;
+            padding: 1rem;
+            text-align: center;
+            color: #ffc1c1;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
 
         /* футер */
         .server-time {
@@ -508,7 +521,6 @@
                 <a href="#advantages">Преимущества</a>
                 <a href="#regions">Регионы</a>
                 <a href="#api">API</a>
-                <!-- Добавленная кнопка "Стать трейдером" -->
                 <a href="#trader" class="btn">Стать трейдером</a>
                 <a href="#feedback" class="btn btn-primary">Присоединиться</a>
             </nav>
@@ -525,7 +537,6 @@
                 <span class="region-tag">EUR</span>
                 <span class="region-tag">USDT</span>
             </div>
-            <!-- НОВЫЙ БЛОК: добавлены доступные валюты (добавлен EGP) -->
             <div style="margin-top: 1rem; color: #b0b9d0;">
                 <span style="font-weight: 500;">Доступные валюты: </span>
                 <span class="currency-badge">KGS</span>
@@ -535,7 +546,7 @@
                 <span class="currency-badge">AMD</span>
                 <span class="currency-badge">AZN</span>
                 <span class="currency-badge">GEL</span>
-                <span class="currency-badge">EGP</span> <!-- ДОБАВЛЕНО -->
+                <span class="currency-badge">EGP</span>
             </div>
             <p style="margin-top: 1.5rem; color: #b0b9d0;">+ Новые страны уже в разработке. Мы можем индивидуально интегрировать ваш приоритетный GEO.</p>
         </section>
@@ -548,7 +559,6 @@
                 <p style="color: #b0b9d0;">Наша команда состоит из экспертов в области финтеха, блокчейна и кибербезопасности. Мы работаем с 2024 года и уже помогли десяткам проектов масштабироваться в Европе и Латинской Америке. Главные принципы — прозрачность, отказоустойчивость и человеческий подход к поддержке клиентов.</p>
             </div>
 
-            <!-- карточки миссия/ценности/команда -->
             <div class="card-grid">
                 <div class="card">
                     <h3>Миссия</h3>
@@ -574,37 +584,31 @@
             <h2 class="section-title"><span class="gradient-text">Преимущества</span></h2>
             <p style="color: #b0b9d0; margin-bottom: 2rem;">Шесть ключевых факторов, которые делают OnlyPayPro лидером рынка high-risk процессинга.</p>
             <div class="features-grid">
-                <!-- карточка 01 -->
                 <div class="feature-card">
                     <div class="feature-number">01</div>
                     <h3>Прозрачные цены</h3>
                     <p>Никаких скрытых комиссий. Честные тарифы в PLN, USDT, EUR и конкурентоспособный обменный курс. Все расходы известны до подписания договора.</p>
                 </div>
-                <!-- карточка 02 -->
                 <div class="feature-card">
                     <div class="feature-number">02</div>
                     <h3>T+0 Расчёты</h3>
                     <p>Мгновенный доступ к оборотному капиталу. Вывод средств в PLN, USDT, EUR без лимитов 24/7. Никаких задержек и холдов.</p>
                 </div>
-                <!-- карточка 03 -->
                 <div class="feature-card">
                     <div class="feature-number">03</div>
                     <h3>Высокая конверсия</h3>
                     <p>Интеллектуальная маршрутизация платежей и резервные шлюзы обеспечивают максимальный процент успешных транзакций даже в сложных гео.</p>
                 </div>
-                <!-- карточка 04 -->
                 <div class="feature-card">
                     <div class="feature-number">04</div>
                     <h3>Информативная панель</h3>
                     <p>Современный дашборд с полным обзором финансовых потоков, скорингом транзакций и аналитикой в реальном времени.</p>
                 </div>
-                <!-- карточка 05 -->
                 <div class="feature-card">
                     <div class="feature-number">05</div>
                     <h3>Выделенная поддержка</h3>
                     <p>Прямой контакт с разработчиками и менеджерами в Telegram 24/7. Решение любых проблем за минуты, а не дни.</p>
                 </div>
-                <!-- карточка 06 -->
                 <div class="feature-card">
                     <div class="feature-number">06</div>
                     <h3>Прямой H2H API</h3>
@@ -667,11 +671,9 @@
                 <p style="margin-bottom: 1rem;">✅ <strong>EUR (евро)</strong> — банковские переводы SEPA, карты, электронные кошельки. Работаем с резидентами ЕС.</p>
                 <p style="margin-bottom: 1rem;">✅ <strong>USDT (Tether)</strong> — криптовалютные транзакции в сетях TRC20 и BEP20. Быстрые и недорогие переводы по всему миру.</p>
                 <p style="margin-bottom: 1rem;">✅ <strong>Валюты СНГ</strong> — KGS, KZT, UZS, BYN, AMD, AZN, GEL. Поддержка национальных платёжных методов и прямых банковских переводов.</p>
-                <!-- ДОБАВЛЕН ПУНКТ ПРО EGP -->
                 <p style="margin-bottom: 1rem;">✅ <strong>EGP (египетский фунт)</strong> — поддержка локальных методов в Египте, включая карты и банковские переводы.</p>
             </div>
 
-            <!-- НОВЫЙ БЛОК: наглядное отображение доступных валют (добавлен EGP) -->
             <div style="margin-top: 2rem; background: #131b2f; border-radius: 2rem; padding: 2rem;">
                 <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🌍 Доступные валюты</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1rem;">
@@ -685,7 +687,7 @@
                     <span class="currency-badge">PLN</span>
                     <span class="currency-badge">EUR</span>
                     <span class="currency-badge">USDT</span>
-                    <span class="currency-badge">EGP</span> <!-- ДОБАВЛЕНО -->
+                    <span class="currency-badge">EGP</span>
                 </div>
                 <p style="color:#b0b9d0;">Мы расширили поддержку национальных валют стран СНГ и Ближнего Востока для удобства ваших клиентов. Интеграция с локальными платёжными системами уже доступна.</p>
             </div>
@@ -696,7 +698,7 @@
             </div>
         </section>
 
-        <!-- ===== НОВЫЙ РАЗДЕЛ: СТАТЬ ТРЕЙДЕРОМ (с кнопкой) ===== -->
+        <!-- ===== НОВЫЙ РАЗДЕЛ: СТАТЬ ТРЕЙДЕРОМ ===== -->
         <section class="section" id="trader">
             <h2 class="section-title"><span class="gradient-text">Стать трейдером</span></h2>
             <div style="background: #131b2f; border-radius: 2rem; padding: 2.5rem;">
@@ -707,7 +709,6 @@
                     <li style="padding-left: 2rem; margin-bottom: 1.2rem;">🛡️ Выделенный менеджер поддержки при обороте свыше 15к $ в сутки</li>
                 </ul>
                 <p style="margin-top: 1.5rem; color: #b0b9d0;">Подробности и индивидуальные условия обсуждаются с каждым партнёром лично.</p>
-                <!-- Добавленная кнопка для перехода к форме -->
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="#feedback" class="btn btn-primary">Присоединиться</a>
                 </div>
@@ -765,6 +766,7 @@
         <section class="form-section" id="feedback">
             <h2 class="form-title">📬 Получить доступ</h2>
             <div class="success-message" id="successMessage">✅ Заявка отправлена! Мы свяжемся с вами в ближайшее время.</div>
+            <div class="error-message" id="errorMessage">❌ Ошибка отправки. Попробуйте позже или напишите нам в Telegram.</div>
             <form id="feedbackForm">
                 <div class="form-group">
                     <label for="name">Ваше имя (или ник)</label>
@@ -797,7 +799,7 @@
                 </a>
             </div>
             <div class="small-note">
-                © 2026 OnlyPayPro. Работаем с PLN, USDT, EUR, KGS, KZT, UZS, BYN, AMD, AZN, GEL, EGP. <!-- ДОБАВЛЕНО -->
+                © 2026 OnlyPayPro. Работаем с PLN, USDT, EUR, KGS, KZT, UZS, BYN, AMD, AZN, GEL, EGP.
             </div>
         </footer>
 
@@ -806,14 +808,16 @@
         </div>
     </div>
 
-    <!-- СКРИПТ ОТПРАВКИ В TELEGRAM -->
+    <!-- СКРИПТ ОТПРАВКИ НА СВОЙ СЕРВЕР (замените IP) -->
     <script>
         (function() {
-            const TELEGRAM_BOT_TOKEN = '8007306348:AAH8H5OcqiD_Xtv4nEyOkROY5V5TYAjkRbE';
-            const TELEGRAM_CHAT_ID = '262520571';
+            // ⚠️ ЗАМЕНИТЕ ЭТОТ IP НА РЕАЛЬНЫЙ IP ВАШЕГО СЕРВЕРА
+            const SERVER_IP = '107.189.25.43';
+            const API_URL = `http://${SERVER_IP}:3000/send-message`;
 
             const form = document.getElementById('feedbackForm');
             const successDiv = document.getElementById('successMessage');
+            const errorDiv = document.getElementById('errorMessage');
             const submitBtn = document.getElementById('submitBtn');
 
             form.addEventListener('submit', async function(e) {
@@ -830,39 +834,37 @@
 
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Отправка...';
-
-                const text = `📩 Новая заявка на подключение OnlyPayPro\n\n👤 Имя: ${name}\n📞 Контакт: ${contact}\n💬 Сообщение: ${message || '—'}`;
+                successDiv.classList.remove('show');
+                errorDiv.classList.remove('show');
 
                 try {
-                    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-                    const response = await fetch(url, {
+                    const response = await fetch(API_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: TELEGRAM_CHAT_ID,
-                            text: text,
-                            parse_mode: 'HTML'
-                        })
+                        body: JSON.stringify({ name, contact, message })
                     });
 
-                    const data = await response.json();
-                    if (data.ok) {
+                    const result = await response.text();
+
+                    if (response.ok) {
                         successDiv.classList.add('show');
                         form.reset();
                     } else {
-                        alert('Ошибка отправки. Попробуйте позже или свяжитесь напрямую.');
+                        errorDiv.textContent = '❌ ' + result;
+                        errorDiv.classList.add('show');
                     }
-                } catch (error) {
-                    alert('Сетевая ошибка. Проверьте подключение.');
+                } catch (err) {
+                    console.error(err);
+                    errorDiv.classList.add('show');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.textContent = '✈️ Отправить заявку';
                 }
             });
 
-            successDiv.addEventListener('click', function() {
-                this.classList.remove('show');
-            });
+            // Скрывать сообщения при клике
+            successDiv.addEventListener('click', () => successDiv.classList.remove('show'));
+            errorDiv.addEventListener('click', () => errorDiv.classList.remove('show'));
         })();
     </script>
 
