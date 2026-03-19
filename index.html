@@ -805,7 +805,7 @@
                 </a>
             </div>
             <div class="small-note">
-                © 2026 OnlyPayPro. Работаем с PLN, USDT, EUR, KGS, KZT, UZS, BYN, AMD, AZN, GEL, EGP, RUB, KRW.
+                © 2026 OnlyPayPro. Работаем с PLN, USDT, EUR, KGS, KZT, UZS, BYN, AMD, AZN, GEL, EGP.
             </div>
         </footer>
 
@@ -814,12 +814,12 @@
         </div>
     </div>
 
-    <!-- СКРИПТ ОТПРАВКИ НА СВОЙ СЕРВЕР (замените IP) -->
+    <!-- СКРИПТ ОТПРАВКИ В TELEGRAM -->
     <script>
         (function() {
-            // ⚠️ ЗАМЕНИТЕ ЭТОТ IP НА РЕАЛЬНЫЙ IP ВАШЕГО СЕРВЕРА
-            const SERVER_IP = '107.189.25.43';
-            const API_URL = `http://${SERVER_IP}:3000/send-message`;
+            const BOT_TOKEN = '8007306348:AAGZOMjqGpH6Mh7_TTPOr8TpWlEJZIsW12U';
+            const CHAT_ID = '262520571';
+            const TELEGRAM_API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
             const form = document.getElementById('feedbackForm');
             const successDiv = document.getElementById('successMessage');
@@ -838,29 +838,38 @@
                     return;
                 }
 
+                // Формируем текст сообщения
+                const text = `📩 Новая заявка с сайта OnlyPayPro\n\nИмя: ${name}\nКонтакт: ${contact}\nСообщение: ${message || 'не указано'}`;
+
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Отправка...';
                 successDiv.classList.remove('show');
                 errorDiv.classList.remove('show');
 
                 try {
-                    const response = await fetch(API_URL, {
+                    const response = await fetch(TELEGRAM_API_URL, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, contact, message })
+                        body: JSON.stringify({
+                            chat_id: CHAT_ID,
+                            text: text,
+                            parse_mode: 'HTML' // можно использовать, если добавите HTML-теги
+                        })
                     });
 
-                    const result = await response.text();
+                    const result = await response.json();
 
-                    if (response.ok) {
+                    if (response.ok && result.ok) {
                         successDiv.classList.add('show');
                         form.reset();
                     } else {
-                        errorDiv.textContent = '❌ ' + result;
+                        errorDiv.textContent = '❌ Ошибка отправки. Попробуйте позже.';
                         errorDiv.classList.add('show');
+                        console.error(result);
                     }
                 } catch (err) {
                     console.error(err);
+                    errorDiv.textContent = '❌ Ошибка соединения. Проверьте интернет.';
                     errorDiv.classList.add('show');
                 } finally {
                     submitBtn.disabled = false;
